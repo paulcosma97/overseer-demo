@@ -1,0 +1,24 @@
+<h5 class="mt-5">
+  Istoricul cautarilor mele...
+</h5>
+
+<table mdbTable class="mt-5">
+  <thead class="black white-text">
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Produs</th>
+    <th scope="col">Pret mediu</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr mdbTableCol *ngFor="let search of searches$ | async">
+    <th scope="row">{{search.id}}</th>
+    <td>{{search.name}}</td>
+    <td>{{search.average}}</td>
+  </tr>
+  <tr *ngIf="!(searches$ | async)">
+    <th colspan="3" class="text-center"> Nu exista cautari </th>
+  </tr>
+  </tbody>
+</table>
+

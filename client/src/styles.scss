@@ -1,0 +1,59 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import url(https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700);
+
+*, html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', 'sans-serif';
+}
+
+.logo {
+  background-image: url("./assets/images/logo.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 300px;
+  background-size: auto;
+
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.main-input-search {
+
+  input {
+    border-radius: 25px;
+    height: 50px;
+  }
+}
+
+.navbar {
+  // asd
+  box-shadow: 0 0 0 !important;
+}
+
+i.fa-arrow-left, i.fa-arrow-down {
+  font-size: 25px;
+  padding-top: 60px;
+}
+
+i.fa-arrow-left:hover, i.fa-arrow-down:hover {
+  cursor:pointer;
+}
+
+.modal-footer.d-flex.justify-content-center > input {
+  color:white !important;
+}
+
+ul.navbar-nav{
+  li a {
+    color: #000;
+    border-bottom: 2px solid transparent;
+  }
+
+  li a.active {
+    border-bottom: 2px solid black;
+  }
+}
+
+

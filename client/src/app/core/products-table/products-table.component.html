@@ -1,0 +1,19 @@
+<table mdbTable class="mt-5">
+  <thead class="black white-text">
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Nume</th>
+    <th scope="col">Magazin</th>
+    <th scope="col">Pret</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr mdbTableCol *ngFor="let product of products | async">
+    <th scope="row">{{product.id}}</th>
+    <td>{{product.name}}</td>
+    <td><a [href]="product.link">{{product.shop}}</a></td>
+    <td>{{product.price}}</td>
+  </tr>
+  </tbody>
+</table>
+

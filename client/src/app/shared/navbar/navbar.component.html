@@ -1,0 +1,44 @@
+<!--Navbar-->
+<mdb-navbar SideClass="navbar navbar-expand-lg" [containerInside]="false">
+
+  <!-- Navbar brand -->
+  <mdb-navbar-brand><a class="navbar-brand" [routerLink]="['']">Pretul-Actual.dev</a></mdb-navbar-brand>
+
+  <!-- Collapsible content -->
+  <links>
+
+    <!-- Links -->
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link waves-light" [routerLink]="['']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" mdbWavesEffect>Acasa</a>
+      </li>
+      <li class="nav-item" *ngIf="user">
+        <a class="nav-link waves-light" [routerLink]="['/profile']" routerLinkActive="active" mdbWavesEffect>Profilul meu</a>
+      </li>
+    </ul>
+    <!-- Links -->
+
+    <ul class="navbar-nav ml-auto nav-flex-icons">
+      <li class="nav-item">
+        <a class="nav-link">
+          <ng-template [ngIf]="user">
+            {{ 'Salut, ' + user.username }}
+          </ng-template>
+          <div class="btn-group" mdbDropdown>
+            <mdb-icon fas icon="user" mdbDropdownToggle></mdb-icon>
+            <div class="dropdown-menu dropdown-menu-right dropdown-primary">
+              <a class="dropdown-item" href="#" (click)="showLogin()" *ngIf="!user">Autentificare</a>
+              <a class="dropdown-item" [routerLink]="['/profile']" *ngIf="user">Profilul meu</a>
+              <div class="divider dropdown-divider"></div>
+              <a class="dropdown-item" href="#" *ngIf="user" [routerLink]="['']" (click)="logout()">Deconectare</a>
+              <a class="dropdown-item" href="#" *ngIf="!user" >Inregistrare</a>
+            </div>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </links>
+  <!-- Collapsible content -->
+
+</mdb-navbar>
+<!--/.Navbar-->

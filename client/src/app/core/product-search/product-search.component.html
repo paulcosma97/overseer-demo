@@ -1,0 +1,32 @@
+<div class="logo">
+</div>
+<form (submit)="onProductSearch($event)" >
+  <div class="row">
+    <div class="input-group main-input-search col-8 offset-2 mt-5">
+      <input
+              (keydown)="onProductSearchEnter($event)"
+              type="text"
+              class="form-control"
+              placeholder=" Scrie aici numele unui produs"
+              name="search">
+    </div>
+    <mdb-icon fas [icon]="excludedTermsInputShown ? 'arrow-down' : 'arrow-left'" mdbDropdownToggle (click)="toggleExcludedTermsInput()"></mdb-icon>
+  </div>
+
+  <div class="row">
+    <div *ngIf="excludedTermsInputShown" class="input-group main-input-search col-8 offset-2 mt-4">
+      <input
+              #excludedTerms
+              type="text"
+              class="form-control"
+              placeholder=" Termeni exclusi separati prin virgula"
+              name="search">
+    </div>
+  </div>
+
+</form>
+
+
+<h3 #loading style="visibility: hidden">Loading</h3>
+
+<app-products-table></app-products-table>
