@@ -1,5 +1,5 @@
 {
-  "name": "YOUR_PROJECT_NAME",
+  "name": "overseer-demo",
   "version": "0.0.1",
   "description": "Just another TypeScript library",
   "main": "build/index.js",
@@ -66,7 +66,7 @@
     ]
   },
   "dependencies": {
-    "@jeaks03/overseer-core": "0.0.30",
+    "@jeaks03/overseer-core": "latest",
     "@jeaks03/logger": "latest",
     "@types/node": "latest",
     "mysql": "^2.16.0",
