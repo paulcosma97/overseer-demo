@@ -7,6 +7,7 @@ import { ErrorModalState, ModalState } from '../models/modal.model';
 })
 export class ModalService {
   loginState$ = new Subject<ModalState>();
+  registerState$ = new Subject<ModalState>();
   errorState$ = new Subject<ErrorModalState>();
 
   constructor() { }

@@ -25,13 +25,13 @@
             {{ 'Salut, ' + user.username }}
           </ng-template>
           <div class="btn-group" mdbDropdown>
-            <mdb-icon fas icon="user" mdbDropdownToggle></mdb-icon>
-            <div class="dropdown-menu dropdown-menu-right dropdown-primary">
+            <mdb-icon #toggle fas icon="user" mdbDropdownToggle></mdb-icon>
+            <div class="dropdown-menu dropdown-menu-right dropdown-primary" (click)="toggle.onClick()">
               <a class="dropdown-item" href="#" (click)="showLogin()" *ngIf="!user">Autentificare</a>
               <a class="dropdown-item" [routerLink]="['/profile']" *ngIf="user">Profilul meu</a>
               <div class="divider dropdown-divider"></div>
               <a class="dropdown-item" href="#" *ngIf="user" [routerLink]="['']" (click)="logout()">Deconectare</a>
-              <a class="dropdown-item" href="#" *ngIf="!user" >Inregistrare</a>
+              <a class="dropdown-item" href="#" *ngIf="!user" (click)="showRegister()">Inregistrare</a>
             </div>
           </div>
         </a>

@@ -9,7 +9,6 @@ export const initialState: UserState = {
 
 export function userReducer(state = initialState, action: UserActions) {
     switch (action.type) {
-
         case UserTypes.Update:
             return {
                 isLogged: true,

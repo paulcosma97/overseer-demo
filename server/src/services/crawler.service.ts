@@ -1,10 +1,9 @@
-import {Requisite} from "@jeaks03/overseer-core";
+import { Requisite } from "@jeaks03/overseer-core";
 import EmagCrawler from "../requisites/emag-crawler.component";
 import PcGarageCrawler from "../requisites/pc-garage-crawler.component";
 import logger from '@jeaks03/logger';
 import Product from '../entities/product.model';
 import Customer from '../entities/customer.model';
-import { Connection } from 'typeorm';
 import ProductService from './product.service';
 
 @Requisite

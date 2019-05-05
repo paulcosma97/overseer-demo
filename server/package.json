@@ -66,9 +66,12 @@
     ]
   },
   "dependencies": {
-    "@jeaks03/overseer-core": "latest",
     "@jeaks03/logger": "latest",
+    "@jeaks03/overseer-core": "latest",
+    "@jeaks03/cached": "latest",
+    "@types/bcrypt": "^3.0.0",
     "@types/node": "latest",
+    "bcryptjs": "^2.4.3",
     "mysql": "^2.16.0",
     "puppeteer": "^1.13.0",
     "reflect-metadata": "^0.1.13",

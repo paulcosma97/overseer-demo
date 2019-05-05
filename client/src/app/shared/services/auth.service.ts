@@ -5,7 +5,7 @@ import UserCredentials from '../models/user-credentials.model';
 import { ModalService } from './modal.service';
 import { State } from '../state';
 import { Store } from '@ngrx/store';
-import { UserLoginFail, UserUpdate } from '../state/actions/user.actions';
+import { UserLoginFail, UserRegisterFail, UserUpdate } from '../state/actions/user.actions';
 import ProductSearch from '../models/product-search.model';
 import { EMPTY } from 'rxjs';
 
@@ -15,7 +15,7 @@ import { EMPTY } from 'rxjs';
 })
 export class AuthService {
   constructor(private http: HttpClient,
-              private modalSerivce: ModalService,
+              private modalService: ModalService,
               private store: Store<State>) { }
 
   tryLogin() {
@@ -28,6 +28,19 @@ export class AuthService {
     this.store.dispatch(new UserUpdate(credentials.user));
   }
 
+  register(user: User) {
+    this.modalService.registerState$.next({ open: false });
+    this.http.post<UserCredentials>('http://localhost:8000/users', user).subscribe(
+        credentials => {
+          this.setCredentials(credentials);
+          this.store.dispatch(new UserUpdate(credentials.user));
+        },
+        () => {
+          this.store.dispatch(new UserRegisterFail());
+        }
+    );
+  }
+
   getCredentials(): UserCredentials {
     return JSON.parse(localStorage.getItem('credentials'));
   }
@@ -38,7 +51,7 @@ export class AuthService {
 
   login(user: User) {
     const encodedCredentials = btoa(`${user.username}:${user.password}`);
-    this.modalSerivce.loginState$.next({ open: false });
+    this.modalService.loginState$.next({ open: false });
 
     this.http.get('http://localhost:8000/access-token', { headers: {
       Authorization: 'Basic ' + encodedCredentials

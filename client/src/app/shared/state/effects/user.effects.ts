@@ -17,7 +17,15 @@ export class UserEffects {
     );
 
     @Effect({dispatch: false})
-    logout = this.actions$.pipe(
+    register$ = this.actions$.pipe(
+        ofType(UserTypes.Register),
+        tap((action: any) => {
+            this.authService.register(action.payload);
+        })
+    );
+
+    @Effect({dispatch: false})
+    logout$ = this.actions$.pipe(
         ofType(UserTypes.Logout),
         tap(() => {
             this.router.navigate(['']);
@@ -26,13 +34,19 @@ export class UserEffects {
     );
 
     @Effect({dispatch: false})
-    loginFail = this.actions$.pipe(
+    loginFail$ = this.actions$.pipe(
         ofType(UserTypes.LoginFail),
         tap(() => this.modalService.showError('Autentificare esuata! Numele sau parola sunt incorecte.', 2500))
     );
 
+    @Effect({dispatch: false})
+    registerFail$ = this.actions$.pipe(
+        ofType(UserTypes.RegisterFail),
+        tap(() => this.modalService.showError('Inregistrarea a esuat!', 2500))
+    );
+
     @Effect()
-    userExpire = this.actions$.pipe(
+    userExpire$ = this.actions$.pipe(
         ofType(UserTypes.Expire),
         tap(() => this.modalService.showError('Sesiunea a expirat!', 2500)),
         mapTo(new UserLogout())

@@ -17,4 +17,4 @@ export default {
   ],
   synchronize: true,
   logging: false,
-} as ConnectionOptions;
+} as ConnectionOptions & { host: string, username: string, port: number };

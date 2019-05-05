@@ -1,5 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { AuthService } from '../services/auth.service';
+import { Component, OnInit } from '@angular/core';
 import User from '../models/user.model';
 import { ModalService } from '../services/modal.service';
 import { select, Store } from '@ngrx/store';
@@ -29,6 +28,12 @@ export class NavbarComponent implements OnInit {
 
   showLogin() {
     this.modalService.loginState$.next({
+      open: true
+    });
+  }
+
+  showRegister() {
+    this.modalService.registerState$.next({
       open: true
     });
   }

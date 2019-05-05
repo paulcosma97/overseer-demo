@@ -1,4 +1,4 @@
-import { AuthenticatedGuard, Pathway, PathInfo, Requisite } from "@jeaks03/overseer-core";
+import { AuthenticatedGuard, PathInfo, Pathway, Requisite } from "@jeaks03/overseer-core";
 import CrawlerService from "../services/crawler.service";
 import Customer from '../entities/customer.model';
 import ProductService from '../services/product.service';

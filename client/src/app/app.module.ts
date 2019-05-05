@@ -19,6 +19,7 @@ import { ProductSearchComponent } from './core/product-search/product-search.com
 import { routes } from './shared/routes';
 import { ProfileComponent } from './core/profile/profile.component';
 import { ErrorModalComponent } from './shared/error-modal/error-modal.component';
+import { RegisterComponent } from './shared/register/register.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ErrorModalComponent } from './shared/error-modal/error-modal.component'
     LoginComponent,
     ProductSearchComponent,
     ProfileComponent,
-    ErrorModalComponent
+    ErrorModalComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
